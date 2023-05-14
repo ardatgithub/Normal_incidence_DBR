@@ -7,7 +7,7 @@ The software **Normal_incidence_DBR** is a standalone Python application that pl
 A brief description about quarter-wave stacks and the formulas used by the software app are detailed in this [document](https://github.com/ardatgithub/Normal_incidence_DBR/blob/main/Distributed%20Bragg%20reflector%20at%20normal%20incidence_documentation.pdf).
 
 ## Download
-The files are compressed in [7-Zip](https://www.7-zip.org/) format and can be downloaded from [here](https://archive.org/details/normal-incidence-dbr.-7z). Uncompress the files on your Windows machine and run `Normal_incidence_DBR.exe`. It has been hosted on an external server as Github does not allow files >25 MB.
+The files are compressed in [7-Zip](https://www.7-zip.org/) format and can be downloaded from [here](https://archive.org/details/normal-incidence-dbr.-7z) or [here](https://zenodo.org/record/7935041). Uncompress the files on your Windows machine and run `Normal_incidence_DBR.exe`. It has been hosted on an external server as Github does not allow files >25 MB.
 
 ## Source file
 You can run the Python [source file](https://github.com/ardatgithub/Normal_incidence_DBR/blob/main/Normal_incidence_DBR.py) for faster initial operation and further customisation. **Dependencies** include the following packages:
