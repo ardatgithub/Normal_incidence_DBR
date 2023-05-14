@@ -9,7 +9,7 @@
 __author__ = "Amit Raj Dhawan"
 __copyright__ = "Copyright 2023, Amit Raj Dhawan"
 __credits__ = ["Amit Raj Dhawan"]
-__version__ = 1.0
+__version__ = 1.1
 __maintainer__ = "Amit Raj Dhawan"
 __email__ = "amitrajdhawan@gmail.com"
 __status__ = "Stable release"
@@ -31,7 +31,7 @@ from PIL import Image, ImageTk
 
 # Create the graphical user interface window using Tkinter and add a title.
 root = tk.Tk()
-root.title("Bragg reflector at normal incidence (v1.0)")
+root.title("Bragg reflector at normal incidence (v1.1)")
 
 # Add image in GUI
 image = Image.open("dbr2.png")
@@ -159,13 +159,8 @@ def ok():
     plt.plot(wavelength, Reflectance)
     plt.xlabel('Wavelength (nm)')
     plt.ylabel('Reflectance')
-    # Find wavelength at which Reflectance is maximum
-    max_wavelength_index = np.where(Reflectance == max(Reflectance))
-    min_wavelength_index = np.where(Transmittance == min(Transmittance))
-    max_reflectance_wavelength = float(np.round(wavelength[max_wavelength_index],0)) # float works only when there is only 1 element.
-    min_transmittance_wavelength = float(np.round(wavelength[min_wavelength_index],0)) # float works only when there is only 1 element.
     plt.title( '$R_{max} = $'+ str(np.round(max(Reflectance)*100,2)) + '% ' + \
-                    'at ' + str(max_reflectance_wavelength) + 'nm\n' + \
+                    'at ' + str(lambda_0) + 'nm\n' + \
                 str(pairs) + ' pairs of $n_H/n_L = $' + str(np.round((n_H),2)) + '/' + str(np.round((n_L),2)))
     
     plt.figure('Reflectance logscale')
@@ -173,7 +168,7 @@ def ok():
     plt.xlabel('Wavelength (nm)')
     plt.ylabel('Reflectance')
     plt.title( '$R_{max} = $'+ str(np.round(max(Reflectance)*100,2)) + '% ' + \
-                    'at ' + str(max_reflectance_wavelength) + 'nm\n' + \
+                    'at ' + str(lambda_0) + 'nm\n' + \
                 str(pairs) + ' pairs of $n_H/n_L = $' + str(np.round((n_H),2)) + '/' + str(np.round((n_L),2)))
     
     plt.figure('Transmittance logscale')
@@ -181,7 +176,7 @@ def ok():
     plt.xlabel('Wavelength (nm)')
     plt.ylabel('Transmittance')
     plt.title( '$T_{min} = $'+ str(np.round(min(Transmittance)*100,2)) + '% ' + \
-                    'at ' + str(min_transmittance_wavelength) + 'nm\n' + \
+                    'at ' + str(lambda_0) + 'nm\n' + \
                 str(pairs) + ' pairs of $n_H/n_L = $' + str(np.round((n_H),2)) + '/' + str(np.round((n_L),2)))
     
     plt.figure('Transmittance')
@@ -189,7 +184,7 @@ def ok():
     plt.xlabel('Wavelength (nm)')
     plt.ylabel('Transmittance')
     plt.title( '$T_{min} = $'+ str(np.round(min(Transmittance)*100,2)) + '% ' + \
-                    'at ' + str(min_transmittance_wavelength) + 'nm\n' + \
+                    'at ' + str(lambda_0) + 'nm\n' + \
                 str(pairs) + ' pairs of $n_H/n_L = $' + str(np.round((n_H),2)) + '/' + str(np.round((n_L),2)))
 
     
@@ -243,7 +238,7 @@ clear_figure_button.grid(row=len(labels)+3, column=2)
 
 # Create the "About" button
 def about_message():
-    messagebox.showinfo("About", "Bragg reflector at normal incidence v1.0 \n Copyright© by Amit Raj Dhawan")
+    messagebox.showinfo("About", "Bragg reflector at normal incidence v1.1 \n Copyright© by Amit Raj Dhawan")
 about_button = tk.Button(root, text="About", font=('Source Sans Pro', 11), command=about_message)
 about_button.grid(row=len(labels)+3, column=1)
 
